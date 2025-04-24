@@ -112,5 +112,74 @@ Either the system is predicting wrong time or the driver is stalling more time.
 4. Make system predictions better to calculate time or
 improve routes maps and make driver follow them for secured delivery
 
+### Corridors
+#### Busiest States
+**Insights:**
+1. The busiest states in **delivery route type carting** are **Maharashtra** and **Karnataka**, with more than **2000 trip creations** recorded.
+  - The **average distance** for trips with **Maharashtra** as the source and destination is nearly **70 kilometers**, and the **time taken** is nearly **180 hours**.
+  - For **Karnataka**, the average distance is nearly **60 kilometers**, and the time taken is nearly **150 hours**.
+
+2. The busiest states in **delivery route type FTL** are **Telangana, Delhi,** and **Haryana**, with nearly **500 trips** created.
+  - The **average distance** for trips between **Telangana** as the source and destination is nearly **80 kilometers**, and the time taken is nearly **190 hours**.
+  - The **average distance** from **Delhi to Haryana** is **180 kilometers**, and the time taken is nearly **360 hours**.
+
+3. When considering **interstate trips**, whether in **FTL** or **carting**, **Delhi and Haryana** are the top states, followed by **Uttar Pradesh**.
+
+**Recommendation:**
+1. Focus on improving delivery efficiency by **optimizing routes** in Maharashtra and Karnataka, as these states see the **highest** number of **trips** for the carting route type.
+2. For FTL route types, prioritize **better planning and coordination** for Delhi-Haryana and Telangana trips, as they have the **longest average distances and times**.
+
+#### Busiest Cities
+**Insights:** (Similar analysis as done above for state)
+
+1. The busiest **city-to-city corridors** for **delivery route type carting** are **Bengaluru**, **Bhiwandi to Mumbai**, and **Hyderabad**.
+  - **Intercity Bengaluru** trips are the highest, with more than **1.3k trips**.
+  - Next is **Bhiwandi to Mumbai** with **400 trips**, followed by **intercity Hyderabad** with **300 trips**.
+  - The **average distance** for Bengaluru trips is **40 km**, for Mumbai it is **30 km**, and for Hyderabad, it is **25 km**. All three cities have the same **average time of 100 hours**.
+
+2. Clearly, **Bengaluru** is contributing the most to Delhivery’s operations.
+
+3. The busiest **city-to-city corridor** for **delivery route type FTL** is from **Delhi to Gurgaon** and **Pune to Bhiwandi**.
+  - For **Delhi to Gurgaon**, there are nearly **250 trips** created.
+    - The **average distance** between **Delhi and Gurgaon** is **300 km**, with a time of nearly **580 hours**.
+  - The **average distance** between **Pune and Bhiwandi** is **150 km**, and the time taken is **300 hours**.
+
+ **Recommendation:**
+ 1. Scaling up delivery resources such as **fleet size** and **logistics infrastructure** in **Bengaluru** to meet increasing demand and supply needs in this busiest city.
+ 2. Introducing **better route planning** for **Delhi to Gurgaon** and **Pune to Bhiwandi** routes, as these corridors have significant distances and long delivery times (580 hours and 300 hours, respectively).
+
+### Top Start to Destination Delhivery 
+**Insights:** (Similar analysis as done above for state and city)
+
+1. The busiest **place-to-place delivery** for **route type carting** is between **Nelamangala**, **Kempegowda International Airport**, and **Bommasandra**.
+  - Ignoring "Central" as it is a place mentioned for many cities and states.
+  - The **average distance** between **Nelamangala** and **Kempegowda International Airport** is **30 km**, with a time of nearly **90 hours**.
+  - The **average distance** between **Nelamangala** and **Bommasandra** is **100 km**, taking nearly **210 hours**.
+  - The **average distance** between **Bommasandra** and **Kempegowda** is **40 km**, with a time of **110 hours**.
+
+2. The busiest **place-to-place delivery** for **route type FTL** is from **Tathawade to Mankoli**, the return route from **Mankoli to Tathawade**, and **Mehmadpur to Bilaspur**.
+  - The **average distance** between **Tathawade and Mankoli** is **150 km**, with a time of **300 hours**.
+  - The **average distance** for the **return journey** is **200 km**, with a time of **400 hours**.
+  - There seems to be an error in routing between **Tathawade and Mankoli**, as the average distances for the onward and return trips are different.
+  - The **average distance** between **Mehmadpur and Bilaspur** is **950 km**, taking **1600 hours**.
+
+**Recommendation:**
+1. Given the high demand in places like **Nelamangala, Kempegowda International Airport, and Bommasandra**, consider **expanding warehouse capacity** in these regions by building larger or additional warehouses to better manage the high volume of deliveries.
+
+#### OSRM Compute Difference
+**Insights on effectiveness of OSRM Predictions**
+
+1. For **Guwahati to Dankuni**, the system has predicted the distance incorrectly by about **650 km**.
+2. For **Bilaspur to Poonamalle**, the difference is about **470 km**, and for **Nelamangala to Transport**, it is **450 km**.
+
+3. The highest time difference between **OSRM predicted** and **actual time** is **3000 hours** for **Guwahati to Dankuni**. The next highest is for **Kotwali to Central of Tulsipur**, with a difference of about **2500 hours**.
+
+4. These higher differences are due to **less data** on those trips
+
+**Recommendations:**
+1. The above differences in distance and time suggest that much **improvement is needed** for these **locations**, as the system is unable to predict correctly and may not save time or resources effectively.
+
+2. Gather **more data** on **less frequent routes** and optimize the OSRM calculations for **better prediction**.
+
 ## Future work
 1. Build forecasting models for trip creation based on dependent variables like state, city or time.
